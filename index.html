@@ -1,433 +1,47 @@
-<h3 id="development-methodology">Development Methodology</h3>
-<p>The development methodology adopted for this project is <strong>Scrum</strong>, an agile framework that emphasizes iterative progress, collaboration, and flexibility. Scrum is particularly effective for projects with evolving requirements, such as the development of an <strong>eCommerce website using Django</strong>. The Scrum framework includes roles (Product Owner, Scrum Master, and Development Team), events (Sprints, Daily Scrum, Sprint Review, and Sprint Retrospective), and artifacts (Product Backlog, Sprint Backlog, and Increment). This methodology ensures that the team delivers incremental value to stakeholders while continuously improving processes.</p>
-<hr>
-<h3 id="requirements-specification">Requirements Specification</h3>
-<p>The requirements for the eCommerce website are specified in the form of <strong>User Stories</strong>, which are concise descriptions of functionality from the perspective of the end-user. Each user story follows the <strong>INVEST</strong> criteria (Independent, Negotiable, Valuable, Estimable, Small, and Testable) to ensure clarity and feasibility. Below are all the user stories for the project:</p>
-<h4 id="user-stories">User Stories</h4>
+<h3 id="my-contribution-email-functionality-with-otp-verification">My Contribution: Email Functionality with OTP Verification</h3>
+<p>As part of the development team, I was responsible for implementing the <strong>email functionality</strong> in the eCommerce application. This feature ensures that users can securely register and verify their accounts using a One-Time Password (OTP) sent to their email address. Below is an overview of my work on this feature:</p>
+<h4 id="key-responsibilities-">Key Responsibilities:</h4>
 <ol>
-<li><p><strong>Account Creation</strong>  </p>
+<li><p><strong>OTP Generation and Email Sending</strong>:</p>
 <ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 5 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Users can register for an account using their email address.  </li>
-<li>Users receive a confirmation email to verify their account.  </li>
-<li>Users can log in and log out securely.  </li>
+<li>Implemented a mechanism to generate a unique OTP for each user during the registration process.</li>
+<li>Integrated Django&#39;s email backend to send the OTP to the user&#39;s registered email address.</li>
+<li>Used Python&#39;s <code>random</code> module to generate a 6-digit OTP, ensuring it is unique and time-sensitive.</li>
 </ul>
 </li>
-<li><strong>Definition of Done (DoD)</strong>:  <ul>
-<li>Registration and login functionality is tested and functional.  </li>
-<li>Email service is integrated and verified.  </li>
-<li>Documentation includes setup and usage instructions.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Product Search</strong>  </p>
+<li><p><strong>Email Template Design</strong>:</p>
 <ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Users can search for products by name or category.  </li>
-<li>Search results are displayed in a user-friendly format.  </li>
+<li>Designed a user-friendly email template using HTML and CSS to ensure the OTP email is visually appealing and easy to read.</li>
+<li>Included clear instructions for the user to enter the OTP on the website to complete the verification process.</li>
 </ul>
 </li>
-<li><strong>DoD</strong>:  <ul>
-<li>Search functionality is tested and functional.  </li>
-<li>Documentation includes examples of search queries and results.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Add to Cart</strong>  </p>
+<li><p><strong>OTP Verification</strong>:</p>
 <ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Users can add products to their shopping cart.  </li>
-<li>Cart contents are saved across sessions.  </li>
+<li>Developed a backend API endpoint to validate the OTP entered by the user.</li>
+<li>Implemented a time-based expiration for the OTP (e.g., 5 minutes) to enhance security.</li>
+<li>Stored the OTP securely in the database using Django&#39;s built-in models and ensured it is deleted after successful verification or expiration.</li>
 </ul>
 </li>
-<li><strong>DoD</strong>:  <ul>
-<li>Cart functionality is tested and functional.  </li>
-<li>Documentation includes examples of adding and removing items from the cart.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Secure Checkout</strong>  </p>
+<li><p><strong>Error Handling</strong>:</p>
 <ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 5 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Users can securely enter payment and shipping details.  </li>
-<li>Transactions are processed securely and comply with PCI-DSS standards.  </li>
+<li>Added robust error handling to manage cases such as incorrect OTP entries, expired OTPs, and email delivery failures.</li>
+<li>Provided meaningful error messages to the user to guide them through the verification process.</li>
 </ul>
 </li>
-<li><strong>DoD</strong>:  <ul>
-<li>Checkout functionality is tested and functional.  </li>
-<li>Payment gateway is integrated and verified.  </li>
-<li>Documentation includes setup and usage instructions.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Order Confirmation</strong>  </p>
+<li><p><strong>Testing</strong>:</p>
 <ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 2 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Users receive an order confirmation email after completing a purchase.  </li>
-<li>Order details are displayed on the website.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Order confirmation functionality is tested and functional.  </li>
-<li>Email service is integrated and verified.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Product Reviews</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Should have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Users can leave reviews on purchased products.  </li>
-<li>Reviews are displayed on the product page.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Review functionality is tested and functional.  </li>
-<li>Documentation includes examples of adding and displaying reviews.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Gunicorn Webserver</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Could have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Gunicorn is configured and deployed for the API and website.  </li>
-<li>Performance benchmarks show improved speed compared to Apache.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Gunicorn is serving the API and website in a production environment.  </li>
-<li>Performance tests confirm improved speed and reliability.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>API to Store Weather and Environmental Data for GET Requests</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>API stores and retrieves weather data (date, time, coordinates, temperature, humidity, etc.).  </li>
-<li>Data is returned in the specified ISO 8601 format.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>API endpoints are tested and return accurate data.  </li>
-<li>Documentation includes examples of GET requests and responses.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>API Security with JSON Web Tokens (JWT)</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Should have  </li>
-<li><strong>Estimate</strong>: 2 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>JWT is implemented for authentication and authorization.  </li>
-<li>Tokens expire after a set duration and are securely stored.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>API endpoints require valid JWT for access.  </li>
-<li>Security tests confirm proper token handling and validation.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Payment Gateway Integration</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Could have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Payment gateway (e.g., Stripe) is integrated into the website.  </li>
-<li>Transactions are secure and comply with PCI-DSS standards.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Payment gateway is tested and functional.  </li>
-<li>Documentation includes setup and usage instructions.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>SQLite3 for Prototyping</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Could have  </li>
-<li><strong>Estimate</strong>: 1 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>SQLite3 is used for rapid development and testing.  </li>
-<li>Migration plan from SQLite3 to MySQL is documented.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>SQLite3 is set up and functional for development.  </li>
-<li>Migration plan is complete and tested.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Collaborative Source Code Management</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Should have  </li>
-<li><strong>Estimate</strong>: 5 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Git is used for version control and collaboration.  </li>
-<li>Repository is set up and accessible to all team members.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Git repository is functional and all team members can contribute.  </li>
-<li>Documentation includes guidelines for branching and merging.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Django Development</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 4 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Django framework is set up and configured.  </li>
-<li>Core website features are implemented and tested.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Django setup is complete and functional.  </li>
-<li>Core features are tested and documented.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Using Django for Web Development to Leverage Existing Python Expertise</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Django is used for website development.  </li>
-<li>IT staff are briefed on the framework for future maintenance.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Django setup is complete and functional.  </li>
-<li>IT staff are trained and documentation is provided.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Use Django Built-in Server for Rapid Development</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Should have  </li>
-<li><strong>Estimate</strong>: 2 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Django development server is used for rapid iteration.  </li>
-<li>Nginx or Gunicorn configurations are documented for deployment.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Django development server is functional.  </li>
-<li>Deployment configurations are documented and tested.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Test-Driven Development</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Should have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Test-driven development (TDD) framework is implemented.  </li>
-<li>Unit tests are written for all core features.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>TDD framework is functional and integrated.  </li>
-<li>Unit tests cover all core features and pass successfully.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Risk Management Plan</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 5 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Risk register is created and updated regularly.  </li>
-<li>Appropriate risk response strategies are defined.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Risk register is complete and up-to-date.  </li>
-<li>Risk response strategies are documented and tested.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>UML Activity Diagrams</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Must have  </li>
-<li><strong>Estimate</strong>: 3 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>UML diagrams are created for API and website.  </li>
-<li>Diagrams are reviewed and validated by stakeholders.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>UML diagrams are complete and accurate.  </li>
-<li>Stakeholders have reviewed and approved the diagrams.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>DBeaver Community Edition Tool</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Could have  </li>
-<li><strong>Estimate</strong>: 1 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>DBeaver is used for managing the SQLite database.  </li>
-<li>Team members can use DBeaver on different platforms.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>DBeaver is set up and functional.  </li>
-<li>Team members are trained and documentation is provided.  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Collaborative Tool for Managing Scrum</strong>  </p>
-<ul>
-<li><strong>Priority</strong>: Should have  </li>
-<li><strong>Estimate</strong>: 5 (Planning Poker)  </li>
-<li><strong>Acceptance Criteria</strong>:  <ul>
-<li>Trello is used for tracking project progress.  </li>
-<li>User Stories and tasks are prioritized and updated regularly.  </li>
-</ul>
-</li>
-<li><strong>DoD</strong>:  <ul>
-<li>Trello board is set up and functional.  </li>
-<li>All team members can access and update the board.  </li>
-</ul>
-</li>
+<li>Conducted unit tests to ensure the OTP generation, email sending, and verification processes work as expected.</li>
+<li>Performed integration testing to verify the seamless flow between the frontend and backend components.</li>
 </ul>
 </li>
 </ol>
-<hr>
-<h3 id="prioritisation">Prioritisation</h3>
-<p>User stories are prioritized using the <strong>MoSCoW method</strong> (Must have, Should have, Could have, Won&#39;t have). This ensures that the most critical features are delivered first. For example:</p>
+<h4 id="challenges-and-solutions-">Challenges and Solutions:</h4>
 <ul>
-<li><strong>Must have</strong>: Account creation, product search, add to cart, secure checkout, order confirmation, Django development.  </li>
-<li><strong>Should have</strong>: Product reviews, API security with JWT, collaborative source code management.  </li>
-<li><strong>Could have</strong>: Gunicorn webserver, payment gateway integration, SQLite3 for prototyping.  </li>
-</ul>
-<hr>
-<h3 id="work-estimation">Work Estimation</h3>
-<p>Work estimation is done using <strong>Planning Poker</strong>, a consensus-based technique where team members assign story points to user stories based on complexity, effort, and risk. For example:</p>
-<ul>
-<li><strong>Account Creation</strong>: 5 points (high complexity due to email integration).  </li>
-<li><strong>Product Search</strong>: 3 points (moderate complexity).  </li>
-<li><strong>Secure Checkout</strong>: 5 points (high complexity due to payment gateway integration).  </li>
-</ul>
-<hr>
-<h3 id="backlog-refinement-and-the-invest-criteria">Backlog Refinement and the INVEST Criteria</h3>
-<p>Backlog refinement is an ongoing process where the team reviews and updates the Product Backlog to ensure that user stories are ready for implementation. Each user story must satisfy the <strong>INVEST</strong> criteria:</p>
-<ul>
-<li><strong>Independent</strong>: Can be developed and tested separately.  </li>
-<li><strong>Negotiable</strong>: Details can be discussed and adjusted.  </li>
-<li><strong>Valuable</strong>: Delivers value to the end-user.  </li>
-<li><strong>Estimable</strong>: Can be sized appropriately.  </li>
-<li><strong>Small</strong>: Can be completed within a single Sprint.  </li>
-<li><strong>Testable</strong>: Has clear acceptance criteria.  </li>
-</ul>
-<p>For example, the user story <strong>&quot;Account Creation&quot;</strong> was refined to ensure it was small enough to fit into a Sprint and had clear acceptance criteria for testing.</p>
-<hr>
-<h3 id="task-assignment">Task Assignment</h3>
-<p>Tasks are assigned during <strong>Sprint Planning</strong> based on team members&#39; expertise and availability. For example:</p>
-<ul>
-<li><strong>Account Creation</strong>: Assigned to backend developers familiar with Django and email integration.  </li>
-<li><strong>Product Search</strong>: Assigned to frontend developers with experience in Django templates and search functionality.  </li>
-<li><strong>Secure Checkout</strong>: Assigned to a developer with expertise in payment gateway integration.  </li>
-</ul>
-<p>The process of <strong>self-negotiation</strong> ensures that team members take ownership of tasks they are comfortable with, fostering collaboration and accountability.</p>
-<hr>
-<h3 id="technology">Technology</h3>
-<p>The following tools and technologies were used to support communication, planning, and development:</p>
-<ul>
-<li><strong>Trello</strong>: For managing the Product Backlog and Sprint Backlog.  </li>
-<li><strong>Jira</strong>: For tracking tasks and progress (alternative to Trello).  </li>
-<li><strong>Zoom/Teams</strong>: For Daily Scrum meetings and Sprint Reviews.  </li>
-<li><strong>Git</strong>: For collaborative source code management.  </li>
-<li><strong>DBeaver</strong>: For managing the SQLite database during development.  </li>
-<li><strong>Swagger</strong>: For API documentation.  </li>
-</ul>
-<hr>
-<h3 id="sprint-events">Sprint Events</h3>
-<h4 id="sprint-backlog-and-user-stories">Sprint Backlog and User Stories</h4>
-<ul>
-<li><p><strong>Sprint 1</strong>:  </p>
-<ul>
-<li>User Stories: Django setup, account creation, product search.  </li>
-<li>Completed: Django framework configured, account creation and product search functional.  </li>
-<li>De-scoped: Secure checkout (moved to Sprint 3).  </li>
-</ul>
+<li><p><strong>Challenge</strong>: Ensuring the OTP is delivered promptly to the user&#39;s email.<br><strong>Solution</strong>: Configured Django&#39;s email backend with a reliable SMTP service (e.g., Gmail SMTP) to ensure timely delivery.</p>
 </li>
-<li><p><strong>Sprint 2</strong>:  </p>
-<ul>
-<li>User Stories: Add to cart, order confirmation.  </li>
-<li>Completed: Cart functionality and order confirmation implemented.  </li>
-<li>Deferred: Product reviews (moved to Sprint 3).  </li>
-</ul>
-</li>
-<li><p><strong>Sprint 3</strong>:  </p>
-<ul>
-<li>User Stories: Secure checkout, product reviews.  </li>
-<li>Completed: Checkout functionality and product reviews implemented.  </li>
-<li>In Progress: Payment gateway integration.  </li>
-</ul>
+<li><p><strong>Challenge</strong>: Preventing OTP misuse or brute-force attacks.<br><strong>Solution</strong>: Implemented rate-limiting on the OTP verification endpoint and added a maximum retry limit for OTP entries.</p>
 </li>
 </ul>
-<h4 id="sprint-review">Sprint Review</h4>
-<ul>
-<li>Feedback from the Product Owner and Scrum Master highlighted the need for better error handling and improved user experience during checkout.  </li>
-</ul>
-<h4 id="sprint-retrospective">Sprint Retrospective</h4>
-<ul>
-<li><strong>Lessons Learned</strong>:  <ul>
-<li>Sprint 1: Need clearer task breakdowns during Sprint Planning.  </li>
-<li>Sprint 2: Improved communication during Daily Scrum meetings.  </li>
-<li>Sprint 3: Focus on completing high-priority tasks first.  </li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="daily-scrum-meetings">Daily Scrum Meetings</h3>
-<p>Daily Scrum meetings are held to synchronize the team&#39;s efforts and address impediments. The structure is as follows:</p>
-<ol>
-<li><strong>Opening and Welcome</strong> (1 minute).  </li>
-<li><strong>Team Member Updates</strong> (10 minutes):  <ul>
-<li>What did you accomplish yesterday?  </li>
-<li>What are you planning to work on today?  </li>
-<li>Are there any impediments in your way?  </li>
-</ul>
-</li>
-<li><strong>Review and Address Impediments</strong> (3 minutes).  </li>
-<li><strong>Announcements and Reminders</strong> (1 minute).  </li>
-<li><strong>Closing</strong> (1 minute).  </li>
-</ol>
+<h4 id="outcome-">Outcome:</h4>
+<p>The email functionality with OTP verification was successfully implemented and integrated into the eCommerce application. This feature enhances the security of the registration process, ensuring that only verified users can access the platform. The user feedback during testing was positive, with users appreciating the simplicity and security of the OTP-based verification process.</p>
+<p>This contribution aligns with the project&#39;s goal of creating a secure and user-friendly eCommerce platform. It also demonstrates my ability to work on critical backend features and deliver them within the project timeline.</p>
